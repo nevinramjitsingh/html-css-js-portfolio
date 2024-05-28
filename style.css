@@ -227,6 +227,7 @@ section {
   padding: 1rem;
   width: 8rem;
   border-radius: 2rem;
+  margin: 1rem;
 }
 
 .btn-color-1,
@@ -375,7 +376,7 @@ article .icon {
 
       .project-title {
         margin: 1rem;
-        color: black; /* Ensures the project title is black */
+        color: black;
     }
     
       
@@ -439,3 +440,26 @@ article .icon {
   footer p {
     text-align: center;
   }
+
+  .project-description {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    text-align: center;
+    border-radius: 6px;
+    padding: 10px;
+    width: 96%;
+    top: 0%;
+    left: 50%;
+    transform: translateX(-50%);
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+.article-container:hover .project-description {
+    visibility: visible;
+    opacity: 1;
+}
+
+
