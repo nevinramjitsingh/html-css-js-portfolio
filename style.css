@@ -5,10 +5,12 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
   font-family: "Poppins", sans-serif;
+  line-height: 1.6;
 }
 
 html {
@@ -70,11 +72,14 @@ a:hover {
 
 #hamburger-nav {
   display: none;
+  z-index: 10;
 }
 
 .hamburger-menu {
   position: relative;
   display: inline-block;
+  border-radius: 2rem; /* Adding border-radius */
+    
 }
 
 .hamburger-icon {
@@ -90,7 +95,7 @@ a:hover {
   width: 100%;
   height: 2px;
   background-color: black;
-  transition: all 0.3 ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .menu-links {
@@ -99,9 +104,11 @@ a:hover {
   right: 0;
   background-color: white;
   width: fit-content;
+  z-index: 10;
+  border-radius: 2rem;
   max-height: 0;
   overflow: hidden;
-  transition: all 0.3 ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .menu-links a {
@@ -111,7 +118,7 @@ a:hover {
   font-size: 1.5rem;
   color: black;
   text-decoration: none;
-  transition: all 0.3 ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .menu-links li {
@@ -138,11 +145,11 @@ a:hover {
   transform: none;
 }
 
-.hamburger-icon span:first-child {
+.hamburger-icon span:nth-child(2) {
   opacity: 1;
 }
 
-.hamburger-icon span:first-child {
+.hamburger-icon span:last-child {
   transform: none;
 }
 
@@ -150,7 +157,7 @@ a:hover {
 
 section {
   padding-top: 4vh;
-  height: 96vh;
+  height: 100vh;
   margin: 0 10rem;
   box-sizing: border-box;
   min-height: fit-content;
@@ -258,10 +265,6 @@ section {
   border: rgb(255, 255, 255) 0.1rem solid;
 }
 
-.btn-container {
-  gap: 1rem;
-}
-
 /* ABOUT SECTION */
 
 #about {
@@ -288,10 +291,6 @@ section {
   border-radius: 2rem;
 }
 
-#projects {
-    position: relative;
-  }  
-
 .arrow {
   position: absolute;
   right: -5rem;
@@ -306,6 +305,9 @@ section {
   border: rgb(53, 53, 53) 0.1rem solid;
   border-color: rgb(163, 163, 163);
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .section-container {
@@ -342,7 +344,6 @@ section {
   display: flex;
   text-align: initial;
   flex-wrap: wrap;
-  flex-direction: row;
   gap: 2.5rem;
   justify-content: space-around;
 }
@@ -350,7 +351,7 @@ section {
 article {
   display: flex;
   width: 10rem;
-  justify-content: space-around;
+  justify-content: flex-start;
   gap: 0.5rem;
 }
 
@@ -358,108 +359,626 @@ article .icon {
   cursor: default;
 }
 
-
 /* PROJECTS SECTION */
 
-    .details-container {
-        max-width: 600px;
-        margin: 0 auto;
-        padding: 20px;
-        box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
-      }
-      
-      .project-img {
-        width: 100%;
-        height: auto;
-        display: block;
-      }
+#projects {
+  position: relative;
+}
 
-      .project-title {
-        margin: 1rem;
-        color: black;
-    }
-    
-      
-      .experience-details-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-evenly;
-      }
-      
-      .details-container {
-        flex: 1 1 300px;
-      }
+.carousel-container {
+  width: 100%;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: #888 #f1f1f1;
+}
 
-  /* CONTACT */
-  
-  #contact {
-    display: flex;
-    justify-content: center;
+.carousel-wrapper {
+  display: flex;
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.project-container {
+  flex: 0 0 auto;
+  width: 360px;
+  scroll-snap-align: start;
+}
+
+.project-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 2rem;
+}
+
+.project-title {
+  margin: 1rem 0;
+  color: black;
+}
+
+.project-description {
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 1rem;
+  padding: 1rem;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: white;
+}
+
+/* CONTACT SECTION */
+
+#contact {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 70vh;
+}
+
+.contact-info-upper-container {
+  display: flex;
+  justify-content: center;
+  border-radius: 2rem;
+  border: rgb(53, 53, 53) 0.1rem solid;
+  border-color: rgb(163, 163, 163);
+  background: (250, 250, 250);
+  margin: 2rem auto;
+  padding: 0.5rem;
+}
+
+.contact-info-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 1rem;
+}
+
+.contact-info-container p {
+  font-size: larger;
+}
+
+.contact-icon {
+  cursor: default;
+}
+
+.email-icon {
+  height: 2.5rem;
+}
+
+/* FOOTER */
+
+footer {
+  height: auto;
+  padding: 2rem 0;
+  margin: 0 1rem;
+}
+
+footer p {
+  text-align: center;
+}
+
+/* MEDIA QUERIES */
+
+@media (max-width: 1200px) {
+  #profile {
+    height: auto;
     flex-direction: column;
-    height: 70vh;
-  }
-  
-  .contact-info-upper-container {
-    display: flex;
-    justify-content: center;
-    border-radius: 2rem;
-    border: rgb(53, 53, 53) 0.1rem solid;
-    border-color: rgb(163, 163, 163);
-    background: (250, 250, 250);
-    margin: 2rem auto;
-    padding: 0.5rem;
-  }
-  
-  .contact-info-container {
-    display: flex;
     align-items: center;
-    justify-content: center;
+  }
+
+  .section__pic-container {
+    width: 275px;
+    height: 275px;
+    margin: 0 auto 2rem;
+  }
+
+  .about-containers {
+    flex-direction: column;
+  }
+
+  .carousel-container::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  .carousel-container::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+  }
+
+  .carousel-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+}
+
+@media (max-width: 768px) {
+  #desktop-nav {
+    display: none;
+  }
+
+  #hamburger-nav {
+    display: flex;
+  }
+
+  section {
+    margin: 0 5%;
+  }
+
+  .section-container {
+    flex-direction: column;
+  }
+
+  .btn-container {
+    flex-wrap: wrap;
+  }
+
+  .contact-info-upper-container {
+    flex-direction: column;
+  }
+
+  .contact-info-container {
+    margin: 0;
+  }
+
+  .carousel-container::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  #profile,
+  .section-container {
+    display: block;
+  }
+
+  section,
+  .section-container {
+    height: auto;
+  }
+
+  section {
+    margin: 0 5%;
+  }
+
+  .arrow {
+    display: none;
+  }
+
+  .contact-info-container p,
+  .nav-links li a {
+    font-size: 1rem;
+  }
+
+  .experience-sub-title {
+    font-size: 1.25rem;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+  }
+
+  .nav-links {
+    flex-direction: column;
     gap: 0.5rem;
-    margin: 1rem;
-  }
-  
-  .contact-info-container p {
-    font-size: larger;
-  }
-  
-  .contact-icon {
-    cursor: default;
-  }
-  
-  .email-icon {
-    height: 2.5rem;
-  }
-  
-  /* FOOTER SECTION */
-  
-  footer {
-    height: 26vh;
-    margin: 0 1rem;
-  }
-  
-  footer p {
     text-align: center;
   }
 
-  .project-description {
-    position: absolute;
-    background-color: rgba(0, 0, 0, 0.7);
-    color: white;
-    text-align: center;
-    border-radius: 6px;
-    padding: 10px;
-    width: 96%;
-    top: 0%;
-    left: 50%;
-    transform: translateX(-50%);
-    visibility: hidden;
-    opacity: 0;
-    transition: opacity 0.3s, visibility 0.3s;
+  .section__pic-container {
+    width: auto;
+    height: 46vw;
+    justify-content: center;
+  }
+
+  .section__text__p2 {
+    font-size: 1.25rem;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .text-container {
+    text-align: justify;
+  }
 }
 
-.article-container:hover .project-description {
-    visibility: visible;
-    opacity: 1;
+/* Updated styles for project hover effect */
+.details-container {
+  position: relative;
+  overflow: hidden;
 }
 
+.article-container {
+  position: relative;
+}
 
+.project-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.project-description {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 200px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 1rem;
+  transform: translateY(-110%);
+  transition: transform 0.3s ease-in-out;
+  overflow-y: auto;
+}
+
+.details-container:hover .project-description {
+  transform: translateY(0);
+}
+
+.project-description p {
+  color: white;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* Ensure the project title and buttons are below the image and description */
+.project-title, .btn-container {
+  position: relative;
+  z-index: 1;
+  background-color: white;
+  padding-top: 0.5rem;
+}
+
+/* Ensure all project containers have the same width and use flexbox for layout */
+.project-container {
+  flex: 0 0 auto;
+  width: 300px;
+  margin-right: 2rem;
+}
+
+.details-container {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Set a fixed height for project images */
+.project-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* Adjust project description to cover the entire image area */
+.project-description {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 200px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 1rem;
+  transform: translateY(-110%);
+  transition: transform 0.3s ease-in-out;
+  overflow-y: auto;
+}
+
+.details-container:hover .project-description {
+  transform: translateY(0);
+}
+
+/* Style the scrollbar for webkit browsers */
+.project-description::-webkit-scrollbar {
+  width: 6px;
+}
+
+.project-description::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 3px;
+}
+
+/* Adjust project titles */
+.project-title {
+  margin: 1rem 0;
+  font-size: 1.2rem;
+  line-height: 1.3;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  margin-top: auto;
+  padding: 1rem 0;
+}
+
+/* Adjust carousel container to show a specific number of projects */
+.carousel-container {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.carousel-wrapper {
+  display: flex;
+  width: max-content;
+}
+
+/* Media query for responsive design */
+@media (max-width: 768px) {
+  .project-container {
+    width: 250px;
+  }
+  
+  .project-title {
+    font-size: 1rem;
+  }
+}
+
+/* New styles for experience and education container images */
+.details-container .icon {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+/* Adjust the layout of the article containers */
+.article-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+article {
+  display: flex;
+  align-items: center;
+  width: calc(50% - 0.5rem);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  article {
+    width: 100%;
+  }
+}
+
+/* Ensure consistent sizing for all icons */
+.icon {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+/* Additional styles for better alignment in experience section */
+.experience-sub-title {
+  margin-bottom: 1rem;
+}
+
+.details-container h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.details-container p {
+  margin: 0;
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Specific adjustments for larger icons */
+.email-icon {
+  height: 3rem;
+}
+
+#socials-container .icon {
+  height: 2.5rem;
+}
+
+/* Adjust layout in experience section for larger icons */
+.article-container .icon {
+  width: 32px;
+  height: 32px;
+  margin-right: 15px;
+}
+
+article {
+  display: flex;
+  align-items: center;
+  width: calc(50% - 1rem);
+}
+
+/* Ensure project description text is white */
+.project-description,
+.project-description p {
+  color: white;
+}
+
+/* Adjust button container for projects */
+.project-container .btn-container {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem; /* Reduce gap between buttons */
+  margin-top: 1rem;
+  padding: 0 1rem; /* Add horizontal padding */
+}
+
+/* Adjust button size for projects */
+.project-container .btn {
+  padding: 0.5rem 1rem; /* Reduce padding */
+  width: auto; /* Allow buttons to size based on content */
+  min-width: 80px; /* Set a minimum width */
+  font-size: 0.9rem; /* Slightly reduce font size if needed */
+}
+
+/* Ensure project container can fit content */
+.project-container {
+  width: 300px; /* Maintain width */
+  max-width: 100%; /* Ensure it doesn't overflow on smaller screens */
+  margin-right: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.details-container.color-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Adjust project description to ensure it doesn't overlap buttons */
+.project-description {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 200px; /* Match the height of the project image */
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 1rem;
+  transform: translateY(-110%);
+  transition: transform 0.3s ease-in-out;
+  overflow-y: auto;
+}
+
+.details-container:hover .project-description {
+  transform: translateY(0);
+}
+
+/* Section Animations */
+
+/* Make sections visible by default */
+section {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+}
+
+/* Prepare sections for animation when they're out of view */
+section:not(.appear) {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* Profile section animations */
+#profile .section__pic-container,
+#profile .section__text {
+  transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+}
+
+#profile:not(.appear) .section__pic-container {
+  opacity: 0;
+  transform: translateX(-50px);
+}
+
+#profile:not(.appear) .section__text {
+  opacity: 0;
+  transform: translateX(50px);
+}
+
+/* About section animations */
+#about .about-containers {
+  transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+}
+
+#about:not(.appear) .about-containers {
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+/* Experience section animations */
+#experience .experience-details-container {
+  transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+}
+
+#experience:not(.appear) .experience-details-container {
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+/* Projects section animations */
+#projects .project-container {
+  transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+}
+
+#projects:not(.appear) .project-container {
+  opacity: 0;
+  transform: rotateY(-10deg);
+}
+
+/* Contact section animations */
+#contact .contact-info-upper-container {
+  transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+}
+
+#contact:not(.appear) .contact-info-upper-container {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* Smooth transition for all elements */
+* {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Hover effects for buttons */
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Updated hover effects for project containers */
+.project-container {
+  transition: transform 0.3s ease-in-out;
+}
+
+.project-container:hover {
+  transform: translateY(-5px);
+}
+
+/* Fix for project card hover effect */
+.details-container.color-container {
+  border-radius: 2rem;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.color-container {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.color-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 2rem;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  z-index: -1;
+}
+
+.project-container:hover .color-container::before {
+  opacity: 1;
+}
+
+/* Animate arrow icon */
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+.arrow {
+  animation: bounce 2s infinite;
+}
